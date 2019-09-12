@@ -1,0 +1,29 @@
+---
+
+ - hosts: "{{master_host}}"
+   gather_facts: no
+   connection: ssh
+   roles: 
+    - installMySQL
+
+ 
+ - hosts: "{{slave_host}}"
+   gather_facts: no
+   connection: ssh
+   roles:
+    - installMySQL
+       
+   tasks:
+    - name: setup slave
+      shell: /apps/mysql/admin_scripts/setup_mysql_slave.sh "{{master_host}}"
+      become: yes
+      become_user: mysql
+   
+    - name: restart slave server
+      service:  name=mysqld state=restarted
+
+    - name: set up mysql backup every 6 hrs
+      shell: crontab /apps/mysql/admin_scripts/crfile
+      become: yes
+      become_user: mysql
+
