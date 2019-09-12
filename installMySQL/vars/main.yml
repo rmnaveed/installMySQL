@@ -1,0 +1,5 @@
+---
+# vars file for installMySQL
+    db_user: 'svc-mysql-repl'
+    db_pass: '*295BA67F830186EBB66D2F332669F9826E9F5B8B'
+    mysql_root_password: '*254261A53FEA82D552350A018D3BA196E0962A86'

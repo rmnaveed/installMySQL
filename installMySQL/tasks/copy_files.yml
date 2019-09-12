@@ -1,0 +1,25 @@
+---
+
+   - name: Copying "mysql software" to the remote server
+     copy:
+       src: software
+       dest: /apps/
+       owner: mysql
+       group: mysql
+
+   - name: Copying ".mylogin.cnf MySQL configuration file " on the remote server
+     copy:
+       src: .mylogin.cnf
+       dest: /home/mysql/.mylogin.cnf
+       owner: mysql
+       group: mysql
+       mode: 0600
+
+   - name: Copying " admin scripts for MySQL information at logon " on the remote server
+     copy:
+       src: admin_scripts
+       dest: /apps/mysql/
+       owner: mysql
+       group: mysql
+       mode: u=rwx
+

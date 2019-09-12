@@ -1,0 +1,8 @@
+---
+
+   - name: Change root password and creating service accounts
+     shell: mysql -e " CREATE USER 'mysqladmin'@'%' IDENTIFIED WITH 'mysql_native_password' AS '*254261A53FEA82D552350A018D3BA196E0962A86' REQUIRE NONE PASSWORD EXPIRE DEFAULT ACCOUNT UNLOCK; alter user root@'localhost' identified with 'mysql_native_password' AS '*254261A53FEA82D552350A018D3BA196E0962A86'; CREATE USER 'svc-mysql-repl'@'%' IDENTIFIED WITH 'mysql_native_password' AS '*295BA67F830186EBB66D2F332669F9826E9F5B8B' REQUIRE NONE PASSWORD EXPIRE DEFAULT ACCOUNT UNLOCK;GRANT REPLICATION SLAVE ON *.* TO 'svc-mysql-repl'@'%';CREATE USER 'svc-mysql-backup'@'%' IDENTIFIED WITH 'mysql_native_password' AS '*63614EB412806BCEB952C6639E2DB2986F639080' REQUIRE NONE PASSWORD EXPIRE DEFAULT ACCOUNT UNLOCK;GRANT ALL PRIVILEGES ON *.* TO 'svc-mysql-backup'@'%';   flush privileges;   "
+     become: yes
+     become_user: mysql 
+
+

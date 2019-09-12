@@ -1,0 +1,29 @@
+#!/bin/bash
+
+THISHOST=$(hostname -s)
+WHEREAMI=`dirname $0`
+CNF_FILES=/etc/my.cnf
+THEDATE=`date`
+config_file=/apps/mysql/admin_scripts/config_file
+
+echo -e "\033[35m*------------------ \033[31m~ MySQL Health Doctor ~\033[35m ------------------\033[0m"
+echo -e "\033[35m*------------- \033[0mAt [$THEDATE] \033[35m-------------\033[0m"
+
+
+. $config_file
+
+        if [ "$MYSQL_SOCK" == "default" ]; then
+                MYSQL_SOCK='/var/lib/mysql/mysql.sock'
+        fi
+
+        if [ "$BKUPPWD" != "--login-path" ]; then
+         CONNECTSTRING="-u $BKUPUSER -p$BKUPPWD -S $MYSQL_SOCK"
+        else
+         CONNECTSTRING="--login-path=$BKUPUSER"
+        fi
+
+### Check MySQL Uptime
+                
+
+        UPTIME_SECONDS=`mysqladmin $CONNECTSTRING status | awk '{print $2}'`
+        echo -e "\033[35m|\033[0m    MySQL has been up since ["`date +'%A %_d %B %Y %R:%S' --date="-$UPTIME_SECONDS seconds"`"]"

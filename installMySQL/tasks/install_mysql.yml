@@ -1,0 +1,8 @@
+---
+
+   - name: Install rmp "mysql software" to the remote server
+     yum: name=/apps/software/mysql80-community-release-el7-2.noarch.rpm state=present
+
+   - name: Install package " MySQL server "
+     yum: name=mysql-server state=installed
+

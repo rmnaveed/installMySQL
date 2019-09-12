@@ -1,0 +1,5 @@
+MYSQL_SOCK=default
+BKUPPWD="--login-path"
+BKUPUSER=dba
+MYSQL_PORT=3306
+

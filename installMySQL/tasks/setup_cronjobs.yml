@@ -1,0 +1,7 @@
+---
+
+   - name: Change root password and creating service accounts
+     shell: crontab /apps/mysql/admin_scripts/crfile
+     become: yes
+     become_user: mysql
+

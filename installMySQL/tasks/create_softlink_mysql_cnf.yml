@@ -1,0 +1,25 @@
+---
+
+   - name: Copying "my.cnf MySQL configuration file " on the remote server
+     copy:
+       src: my.cnf
+       dest: /apps/mysql/my.cnf
+       owner: mysql
+       group: mysql
+
+
+   - name: Removing " my.cnf MySQL configuration " file from remote server
+     file: path=/etc/my.cnf state=absent
+
+
+   - name: Copying "my.cnf MySQL configuration file " on the remote server
+     file:
+       src: /apps/mysql/my.cnf
+       dest: /etc/my.cnf
+       force: yes
+       state: link
+
+
+
+
+

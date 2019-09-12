@@ -1,0 +1,2 @@
+#0 19 * * Mon /apps/mysql/admin_scripts/mysql_backup.sh config_file 1>>/apps/mysql/logs/mysql_backup.log 2>&1
+

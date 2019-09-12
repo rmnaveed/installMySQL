@@ -1,0 +1,13 @@
+---
+
+   - name: Add group " mysql " to remote server
+     group:
+       name: mysql
+       state: present
+
+   - name: Add user "mysql" to the remote server
+     user:
+       name: mysql
+       comment: "MySQL Admin Privileged User"
+       group: mysql
+

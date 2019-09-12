@@ -1,0 +1,12 @@
+---
+
+   - name: Initializing MySQL insecure
+     shell: mysqld --initialize-insecure --user=mysql
+     become: yes
+     become_user: mysql
+
+     
+   - name: Start MySQL server
+     service: name=mysqld state=restarted
+     
+

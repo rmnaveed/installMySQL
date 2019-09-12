@@ -1,0 +1,14 @@
+---
+# tasks file for installMySQL
+
+- import_tasks: install_python.yml
+- import_tasks: add_mysql_group_user.yml
+- import_tasks: configure_directories.yml
+- import_tasks: copy_files.yml
+- import_tasks: install_mysql.yml
+- import_tasks: create_softlink_mysql_cnf.yml
+- import_tasks: initialize_insecure_mysql.yml
+- import_tasks: create_db_accounts.yml
+
+
+

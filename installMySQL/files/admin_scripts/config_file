@@ -1,0 +1,8 @@
+MYSQL_SOCK=default
+BKUPPWD="--login-path"
+BKUPUSER=dba
+MYSQL_PORT=3306
+CONNECTSTRING='--login-path=dba'
+MYSQL_BACKUPDIR='/apps/mysql/backup'
+BACKUP_RETENTION=7
+
