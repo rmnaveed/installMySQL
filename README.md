@@ -8,7 +8,7 @@ Add ssh keys to your Ansible Machine / server.
 
 Execute following command to create master-slave MySQL 8 environment.
 
-ansible-playbook install_mysql.yml -e 'master_host=ut012848 slave_host=ut012849'
+ansible-playbook install_mysql.yml -e 'master_host=[master_host] slave_host=[slave host] '
 
 Login to any machine to access mysql prompt.
 
